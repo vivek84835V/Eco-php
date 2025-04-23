@@ -1,6 +1,6 @@
 <?php
 // Connection URI
-$uri = 'mysql://upkhmqb82qq3r2g1:9hjbWtMFWfzGQVVf9Yqk@bd3ja6kzgnqdgalgehbo-mysql.services.clever-cloud.com:3306/bd3ja6kzgnqdgalgehbo';
+$uri = 'mysql://u8edijfv6lwwq9d5:WXm4IWfTsnYMHO6vZJyy@bae1lbwkaijfipy2atrl-mysql.services.clever-cloud.com:3306/bae1lbwkaijfipy2atrl';
 
 // Parse URI into its components
 $parsed_url = parse_url($uri);
