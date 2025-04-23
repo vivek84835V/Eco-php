@@ -1,8 +1,8 @@
 <?php
-$host = 'bd3ja6kzgnqdgalgehbo-mysql.services.clever-cloud.com';
-$db = 'bd3ja6kzgnqdgalgehbo';
-$user = 'upkhmqb82qq3r2g1';
-$pass = '9hjbWtMFWfzGQVVf9Yqk';
+$host = getenv('DB_HOST');
+$db = getenv('DB_NAME');
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
@@ -37,4 +37,5 @@ try {
 } catch (\PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
+
 ?>
