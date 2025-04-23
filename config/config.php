@@ -1,31 +1,21 @@
 <?php
-// Connection URI (already parsed as shown earlier)
-$uri = 'mysql://u8edijfv6lwwq9d5:WXm4IWfTsnYMHO6vZJyy@bae1lbwkaijfipy2atrl-mysql.services.clever-cloud.com:3306/bae1lbwkaijfipy2atrl';
-
-// Parse URI into its components
-$parsed_url = parse_url($uri);
-
-// Extract components from parsed URI
-$host = $parsed_url['host'];
-$port = $parsed_url['port'];
-$user = $parsed_url['user'];
-$pass = $parsed_url['pass'];
-$db = ltrim($parsed_url['path'], '/'); // Remove leading slash
+// ✅ Correct Clever Cloud variable names
+$host = getenv('MYSQL_ADDON_HOST');
+$db = getenv('MYSQL_ADDON_DB');
+$user = getenv('MYSQL_ADDON_USER');
+$pass = getenv('MYSQL_ADDON_PASSWORD');
 $charset = 'utf8mb4';
 
-// Path to your SSL certificate files (change the file paths as needed)
-$ssl_key = '/path/to/client-key.pem';  // Path to your client key
-$ssl_cert = '/path/to/client-cert.pem';  // Path to your client certificate
-$ssl_ca = '/path/to/ca-cert.pem';  // Path to your CA certificate
+// Check if environment variables are set (for debugging purposes)
+if (!$host || !$db || !$user || !$pass) {
+    die('Missing environment variables for database connection.');
+}
 
-// ✅ Create DSN (Data Source Name) for SSL connection
-$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
+// ✅ Create DSN (Data Source Name)
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::MYSQL_ATTR_SSL_KEY    => $ssl_key,
-    PDO::MYSQL_ATTR_SSL_CERT   => $ssl_cert,
-    PDO::MYSQL_ATTR_SSL_CA     => $ssl_ca,
 ];
 
 try {
