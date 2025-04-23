@@ -1,5 +1,5 @@
 <?php
-// Connection URI
+// Connection URI (already parsed as shown earlier)
 $uri = 'mysql://u8edijfv6lwwq9d5:WXm4IWfTsnYMHO6vZJyy@bae1lbwkaijfipy2atrl-mysql.services.clever-cloud.com:3306/bae1lbwkaijfipy2atrl';
 
 // Parse URI into its components
@@ -13,11 +13,19 @@ $pass = $parsed_url['pass'];
 $db = ltrim($parsed_url['path'], '/'); // Remove leading slash
 $charset = 'utf8mb4';
 
-// ✅ Create DSN (Data Source Name)
+// Path to your SSL certificate files (change the file paths as needed)
+$ssl_key = '/path/to/client-key.pem';  // Path to your client key
+$ssl_cert = '/path/to/client-cert.pem';  // Path to your client certificate
+$ssl_ca = '/path/to/ca-cert.pem';  // Path to your CA certificate
+
+// ✅ Create DSN (Data Source Name) for SSL connection
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::MYSQL_ATTR_SSL_KEY    => $ssl_key,
+    PDO::MYSQL_ATTR_SSL_CERT   => $ssl_cert,
+    PDO::MYSQL_ATTR_SSL_CA     => $ssl_ca,
 ];
 
 try {
