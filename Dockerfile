@@ -1,20 +1,35 @@
-# Use official PHP image
+# Use official PHP-Apache image
 FROM php:8.0-apache
 
-# Install dependencies (e.g., MySQL client, extensions)
-RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev && docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install gd mysqli
+# Install PHP extensions (GD for image handling, mysqli for MySQL)
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd mysqli
 
-# Enable Apache rewrite module
+# Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Set the working directory to /var/www/html
+# Set working directory inside container
 WORKDIR /var/www/html
 
-# Copy the application files to the container
+# Copy all project files to the container
 COPY . .
 
-# Expose port 80 for Apache
+# Change Apache's DocumentRoot to the public directory
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
+
+# Add <Directory> directive for public directory in Apache config
+RUN echo '<Directory /var/www/html/public>\n\
+    Options Indexes FollowSymLinks\n\
+    AllowOverride All\n\
+    Require all granted\n\
+</Directory>' >> /etc/apache2/apache2.conf
+
+# Expose default Apache port
 EXPOSE 80
 
-# Start Apache in the foreground
+# Start Apache server in the foreground
 CMD ["apache2-foreground"]
