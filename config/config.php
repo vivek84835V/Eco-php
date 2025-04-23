@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$db = 'ecom-db';
-$user = 'root';
-$pass = '';
+$host = 'bd3ja6kzgnqdgalgehbo-mysql.services.clever-cloud.com';
+$db = 'bd3ja6kzgnqdgalgehbo';
+$user = 'upkhmqb82qq3r2g1';
+$pass = '9hjbWtMFWfzGQVVf9Yqk';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
