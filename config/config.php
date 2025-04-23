@@ -1,18 +1,20 @@
 <?php
-// ✅ Correct Clever Cloud variable names
-$host = getenv('MYSQL_ADDON_HOST');
-$db = getenv('MYSQL_ADDON_DB');
-$user = getenv('MYSQL_ADDON_USER');
-$pass = getenv('MYSQL_ADDON_PASSWORD');
+// Connection URI
+$uri = 'mysql://upkhmqb82qq3r2g1:9hjbWtMFWfzGQVVf9Yqk@bd3ja6kzgnqdgalgehbo-mysql.services.clever-cloud.com:3306/bd3ja6kzgnqdgalgehbo';
+
+// Parse URI into its components
+$parsed_url = parse_url($uri);
+
+// Extract components from parsed URI
+$host = $parsed_url['host'];
+$port = $parsed_url['port'];
+$user = $parsed_url['user'];
+$pass = $parsed_url['pass'];
+$db = ltrim($parsed_url['path'], '/'); // Remove leading slash
 $charset = 'utf8mb4';
 
-// Check if environment variables are set (for debugging purposes)
-if (!$host || !$db || !$user || !$pass) {
-    die('Missing environment variables for database connection.');
-}
-
 // ✅ Create DSN (Data Source Name)
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
