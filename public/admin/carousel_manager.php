@@ -1,5 +1,5 @@
 <?php
-require_once '../config/config.php'; // Make sure you have a working PDO instance in this file
+require_once '../../config/config.php'; // Make sure you have a working PDO instance in this file
 
 $uploadDir = dirname(__DIR__) . '/public/images/uploads/';
 if (!is_dir($uploadDir)) {

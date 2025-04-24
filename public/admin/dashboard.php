@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin'])) {
   exit;
 }
 
-require_once '../config/config.php';
+require_once '../../config/config.php';
 require_once '../app/Models/Product.php';
 $productModel = new Product($pdo);
 $products = $productModel->getAll();

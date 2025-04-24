@@ -1,5 +1,5 @@
 <?php
-include_once('../config/config.php');
+include_once('../../config/config.php');
 
 // 1. Get active theme
 $stmt = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1");

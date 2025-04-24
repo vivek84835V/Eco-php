@@ -1,5 +1,5 @@
 <?php
-include_once('../config/config.php');
+include_once('../../config/config.php');
 $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetch();
 ?>
 <!DOCTYPE html>

@@ -5,7 +5,7 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 
-require_once '../config/config.php';
+require_once '../../config/config.php';
 
 $id = $_GET['id'] ?? null;
 
