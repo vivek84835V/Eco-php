@@ -131,7 +131,7 @@ $premiumImage = $stmt->fetchColumn();
                 <div class="container">
                     <p class="intro-text">Discover Premium Eye-wear Crafted with Perfection</p>
                     <?php
-                    require_once '../app/Models/Product.php';
+                    require_once '../app/Models/product.php';
                     $productModel = new Product($pdo);
                     $products = $productModel->getAll();
                     ?>

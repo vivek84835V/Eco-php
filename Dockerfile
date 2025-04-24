@@ -19,7 +19,11 @@ RUN a2enmod rewrite
 WORKDIR /var/www/html
 
 # Copy project files
-COPY . .
+COPY . /var/www/html
+
+# Fix ownership and permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 755 /var/www/html
 
 # Change Apache DocumentRoot to the public folder
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|g' /etc/apache2/sites-available/000-default.conf
