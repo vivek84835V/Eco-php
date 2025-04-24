@@ -1,5 +1,5 @@
 <?php
-require_once '../../config/config.php'; // Make sure you have a working PDO instance in this file
+require_once '../../config/config.php';
 
 $uploadDir = '../images/uploads/';
 if (!is_dir($uploadDir)) {
@@ -9,7 +9,7 @@ if (!is_dir($uploadDir)) {
 $error = '';
 $success = '';
 
-// Handle image upload
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['carousel_image'])) {
     $file = $_FILES['carousel_image'];
     $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['carousel_image'])) {
             $error = "Failed to upload image.";
         }
     } else {
-        $error = "Invalid file type. Please upload JPG, PNG, GIF, or WEBP images.";
+        $error = "Invalid file type Please upload JPG, PNG, GIF, or WEBP images";
     }
 }
 
-// Handle delete request
+
 if (isset($_GET['delete'])) {
     $fileToDelete = basename($_GET['delete']);
     $path = $uploadDir . $fileToDelete;
@@ -46,11 +46,11 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// Fetch all images
+
 $stmt = $pdo->query("SELECT * FROM carousel_images ORDER BY uploaded_at DESC");
 $carouselImages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Get the latest premium image
+
 $premiumImage = null;
 foreach ($carouselImages as $img) {
     if ($img['type'] === 'premium') {
@@ -136,7 +136,7 @@ foreach ($carouselImages as $img) {
                                 <td><?= htmlspecialchars($img['image_path']) ?></td>
                                 <td><?= htmlspecialchars($img['type']) ?></td>
                                 <td>
-                                    <a href="?delete=<?= urlencode($img['image_path']) ?>" class="tag delete" onclick="return confirm('Are you sure you want to delete this image?')">Delete</a>
+                                    <a href="?delete=<?= urlencode($img['image_path']) ?>" class="tag delete" onclick="return confirm('Are you sure you want to delete this image')">Delete</a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

@@ -1,12 +1,11 @@
 <?php
-// ✅ Correct Clever Cloud variable names
 $host = getenv('MYSQL_ADDON_HOST');
 $db = getenv('MYSQL_ADDON_DB');
 $user = getenv('MYSQL_ADDON_USER');
 $pass = getenv('MYSQL_ADDON_PASSWORD');
 $charset = 'utf8mb4';
 
-// ✅ Create DSN (Data Source Name)
+
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -16,11 +15,10 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
-    // ✅ Fetch active theme from the database
+
     $stmt = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1");
     $theme = $stmt->fetch();
 
-    // ✅ Fallback default theme values
     if (!$theme) {
         $theme = [
             'background_color' => '#f8f8f8',

@@ -13,7 +13,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
 </head>
 <body>
 
-  <!-- top bar -->
+ 
   <header class="dash-bar">
     <h1>Theme Settings</h1>
     <nav>
@@ -24,17 +24,17 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
 
   <main class="dash-wrapper">
 
-    <!-- glassy settings card -->
+
     <section class="form-card" style="max-width:650px">
       <form action="update_theme.php" method="POST" class="theme-form">
 
-        <!-- theme name -->
+    
         <div class="field">
           <label>Theme Name</label>
           <input type="text" name="theme_name" value="<?= htmlspecialchars($current['theme_name']) ?>">
         </div>
 
-        <!-- primary color -->
+      
         <div class="field">
           <label>Primary Color</label>
           <div class="color-field">
@@ -43,7 +43,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- background -->
+      
         <div class="field">
           <label>Background Color</label>
           <div class="color-field">
@@ -52,7 +52,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- text -->
+
         <div class="field">
           <label>Text Color</label>
           <div class="color-field">
@@ -61,7 +61,6 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- header -->
         <div class="field">
           <label>Header Color</label>
           <div class="color-field">
@@ -70,7 +69,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- card background -->
+        
         <div class="field">
           <label>Card Background</label>
           <div class="color-field">
@@ -79,7 +78,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- button color -->
+      
         <div class="field">
           <label>Button Color</label>
           <div class="color-field">
@@ -88,7 +87,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- button text -->
+     
         <div class="field">
           <label>Button Text Color</label>
           <div class="color-field">
@@ -97,7 +96,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- hover -->
+        
         <div class="field">
           <label>Hover Color</label>
           <div class="color-field">
@@ -106,7 +105,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- border -->
+      
         <div class="field">
           <label>Border Color</label>
           <div class="color-field">
@@ -115,7 +114,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
           </div>
         </div>
 
-        <!-- font -->
+       
         <div class="field">
           <label>Font Family</label>
           <select name="font_family">
@@ -135,7 +134,7 @@ $current = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1")->fetc
 
   </main>
 
-  <!-- live‑update color swatch -->
+  
   <script>
     document.querySelectorAll('.color-field input[type="color"]').forEach(inp=>{
       inp.addEventListener('input',e=>{

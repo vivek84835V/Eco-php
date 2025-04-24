@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-  <!-- Top bar (same style as dash) -->
   <header class="dash-bar">
     <h1>Add Product</h1>
     <nav>
@@ -52,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="alert success"><?= $message ?></div>
     <?php endif; ?>
 
-    <!-- Glassy form card -->
+    
     <section class="form-card">
       <form method="POST" enctype="multipart/form-data" class="prod-form">
         <div class="field">

@@ -1,11 +1,11 @@
 <?php
 include_once('../../config/config.php');
 
-// 1. Get active theme
+
 $stmt = $pdo->query("SELECT * FROM themes WHERE is_active = 1 LIMIT 1");
 $currentTheme = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// 2. Merge POST data with current theme values
+
 $mergedTheme = [
     'theme_name'        => $_POST['theme_name'] ?? $currentTheme['theme_name'],
     'primary_color'     => $_POST['primary_color'] ?? $currentTheme['primary_color'],
@@ -20,10 +20,10 @@ $mergedTheme = [
     'border_color'      => $_POST['border_color'] ?? $currentTheme['border_color'],
 ];
 
-// 3. Deactivate previous themes
+
 $pdo->query("UPDATE themes SET is_active = 0");
 
-// 4. Insert the new theme
+
 $stmt = $pdo->prepare("INSERT INTO themes (
     theme_name, primary_color, background_color, font_family, text_color,
     header_color, card_background, button_color, button_text_color,

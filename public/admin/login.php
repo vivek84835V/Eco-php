@@ -30,26 +30,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="css/admin.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Header Styling */
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px;
-      margin-top: 20px; /* Margin from the top */
+      margin-top: 20px;
     }
 
     .back-button {
       position: relative;
-      margin-top: 10px; /* Margin from the top */
+      margin-top: 10px;
     }
 
-    /* Optional: Adjust logo size */
     .header img {
       max-height: 50px;
     }
 
-    /* Optional: Styling the button */
+ 
     .btn-primary {
       background-color: #555555;
       color: white;
@@ -63,9 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-  <!-- Header with Logo on Left and Button on Right -->
+  
   <header class="header">
-    <!-- Button to go back to frontend -->
+    
     <div class="back-button">
       <a href="../index.php" class="btn-secondary">
         <button class="btn-primary">
@@ -75,10 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </header>
 
-  <!-- Glassy Login Card -->
+ 
   <main class="login-wrapper">
     <section class="login-card">
-      <h1>Welcome back<span> 👋</span></h1>
+      <h1>Welcome back<span>👋</span></h1>
 
       <?php if ($error): ?>
         <p class="alert error"><?= $error ?></p>
@@ -94,7 +92,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     © <?= date('Y') ?> Your Company
   </footer>

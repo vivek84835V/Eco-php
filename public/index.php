@@ -1,7 +1,7 @@
 <?php
 include '../config/config.php';
 
-// Fetch the premium image from the carousel_images table
+
 $stmt = $pdo->prepare("SELECT image_path FROM carousel_images WHERE type = 'premium' ORDER BY uploaded_at DESC LIMIT 1");
 $stmt->execute();
 $premiumImage = $stmt->fetchColumn();
@@ -19,7 +19,6 @@ $premiumImage = $stmt->fetchColumn();
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/theme-style.php?v=<?= time() ?>">
     <style>
-        /* Optional Fix: Prevent overflow on hover for last card */
         .product-section-wrapper {
             overflow: visible;
             position: relative;
@@ -29,7 +28,6 @@ $premiumImage = $stmt->fetchColumn();
             display: flex;
             gap: 15px;
             padding: 30px 40px 40px 20px;
-            /* Extra right padding for hover room */
             margin-top: 30px;
             overflow-x: auto;
             overflow-y: visible;
@@ -42,9 +40,7 @@ $premiumImage = $stmt->fetchColumn();
 
         .product-grid {
             -ms-overflow-style: none;
-            /* IE and Edge */
             scrollbar-width: none;
-            /* Firefox */
         }
 
         .card {
@@ -72,7 +68,6 @@ $premiumImage = $stmt->fetchColumn();
             border-radius: 8px;
         }
 
-        /* Optional carousel spacing fix */
         .carousel-container {
             width: 100%;
             overflow: hidden;
@@ -105,17 +100,14 @@ $premiumImage = $stmt->fetchColumn();
     </header>
 
     <main class="main-content">
-        <!-- Hero Section with Carousel -->
         <section class="hero-section">
             <div class="carousel-container">
                 <div class="carousel">
                     <?php
-                    // Fetch carousel images from the database or directory
                     $carouselImages = glob('./images/uploads/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
                     foreach ($carouselImages as $img): ?>
                         <div class="carousel-slide">
                             <a href="#product-grid">
-                                <!-- Link to the product grid section -->
                                 <img src="<?= htmlspecialchars($img) ?>" alt="Carousel Image">
                             </a>
                         </div>
@@ -124,7 +116,7 @@ $premiumImage = $stmt->fetchColumn();
             </div>
         </section>
 
-        <!-- Product Grid (Scrollable Horizontal Row) -->
+
         <section>
             <div class="product-section-wrapper" id="product-grid">
                 <div class="container">
@@ -150,7 +142,7 @@ $premiumImage = $stmt->fetchColumn();
             </div>
         </section>
 
-        <!-- Premium Hero Section Below Product Grid -->
+    
         <section class="premium-hero background_color">
             <div class="container premium-hero-content">
                 <div class="premium-image">
@@ -196,7 +188,7 @@ $premiumImage = $stmt->fetchColumn();
         }
 
         showSlide(currentIndex);
-        setInterval(nextSlide, 5000);
+        setInterval(nextSlide, 3000);
     </script>
 </body>
 
