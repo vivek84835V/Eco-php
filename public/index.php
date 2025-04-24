@@ -14,7 +14,6 @@ $premiumImage = $stmt->fetchColumn();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxury Goggles</title>
-    <!-- <link rel="icon" type="image/svg+xml" href="../public/images/main_logo.svg" /> -->
     <link rel="icon" type="image/png" href="./images/logo_goggles_transparent.png" sizes="50x50" />
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">

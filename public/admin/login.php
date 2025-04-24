@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <header class="header">
     <!-- Button to go back to frontend -->
     <div class="back-button">
-      <a href="../public/index.php" class="btn-secondary">
+      <a href="../index.php" class="btn-secondary">
         <button class="btn-primary">
           <span>Back to Frontend</span>
         </button>
