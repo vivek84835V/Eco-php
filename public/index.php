@@ -139,7 +139,7 @@ $premiumImage = $stmt->fetchColumn();
                         <div class="product-grid">
                             <?php foreach ($products as $product): ?>
                                 <div class="card">
-                                    <img src="../uploads/<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
+                                    <img src="./uploads/?= $product['image'] ?>" alt="<?= $product['name'] ?>">
                                     <h3><?= $product['name'] ?></h3>
                                     <p><?= $product['description'] ?></p>
                                     <strong>$<?= $product['price'] ?></strong>
