@@ -15,7 +15,7 @@ $premiumImage = $stmt->fetchColumn();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luxury Goggles</title>
     <!-- <link rel="icon" type="image/svg+xml" href="../public/images/main_logo.svg" /> -->
-    <link rel="icon" type="image/png" href="../public/images/logo_goggles_transparent.png" sizes="50x50" />
+    <link rel="icon" type="image/png" href="./images/logo_goggles_transparent.png" sizes="50x50" />
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/theme-style.php?v=<?= time() ?>">
@@ -112,7 +112,7 @@ $premiumImage = $stmt->fetchColumn();
                 <div class="carousel">
                     <?php
                     // Fetch carousel images from the database or directory
-                    $carouselImages = glob('../public/images/uploads/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
+                    $carouselImages = glob('./images/uploads/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
                     foreach ($carouselImages as $img): ?>
                         <div class="carousel-slide">
                             <a href="#product-grid">
@@ -156,7 +156,7 @@ $premiumImage = $stmt->fetchColumn();
             <div class="container premium-hero-content">
                 <div class="premium-image">
                     <?php if ($premiumImage): ?>
-                        <img src="../public/images/uploads/<?= htmlspecialchars($premiumImage) ?>" alt="Premium Goggles"
+                        <img src="./images/uploads/<?= htmlspecialchars($premiumImage) ?>" alt="Premium Goggles"
                             loading="lazy">
                     <?php else: ?>
                         <p class="primary_color">No premium image available.</p>
