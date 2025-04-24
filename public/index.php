@@ -101,7 +101,7 @@ $premiumImage = $stmt->fetchColumn();
     <header class="header">
         <div class="container header-container">
             <h1>Luxury Goggles</h1>
-            <a href="../admin/login.php" class="headerBtn">Admin Panel</a>
+            <a href="./admin/login.php" class="headerBtn">Admin Panel</a>
         </div>
     </header>
 
