@@ -1,7 +1,7 @@
 <?php
 require_once '../../config/config.php'; // Make sure you have a working PDO instance in this file
 
-$uploadDir = __DIR__ . '/../images/uploads/';
+$uploadDir = '../images/uploads/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
@@ -89,7 +89,7 @@ foreach ($carouselImages as $img) {
         <?php if ($premiumImage): ?>
             <div class="form-card">
                 <h3>Premium Hero Image</h3>
-                <img src="./images/uploads/<?= htmlspecialchars($premiumImage) ?>" alt="Premium Goggles" style="width:100%;max-width:500px;border-radius:6px;">
+               <img src="../images/uploads/<?= htmlspecialchars($premiumImage) ?>" alt="Premium Goggles" style="width:100%;max-width:500px;border-radius:6px;">
             </div>
         <?php endif; ?>
 
@@ -131,7 +131,7 @@ foreach ($carouselImages as $img) {
                         <?php foreach ($carouselImages as $img): ?>
                             <tr>
                                 <td>
-                                    <img src="./images/uploads/<?= htmlspecialchars($img['image_path']) ?>" alt="Carousel Image" style="height:60px;border-radius:4px;">
+                                <img src="../images/uploads/<?= htmlspecialchars($img['image_path']) ?>" alt="Carousel Image" style="height:60px;border-radius:4px;">
                                 </td>
                                 <td><?= htmlspecialchars($img['image_path']) ?></td>
                                 <td><?= htmlspecialchars($img['type']) ?></td>
