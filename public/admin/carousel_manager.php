@@ -1,7 +1,7 @@
 <?php
 require_once '../../config/config.php'; // Make sure you have a working PDO instance in this file
 
-$uploadDir = dirname(__DIR__) . '/public/images/uploads/';
+$uploadDir = dirname(__DIR__) . '/images/uploads/';
 if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0777, true);
 }
